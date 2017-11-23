@@ -12,9 +12,10 @@ app.use(morgan('combine'))
 app.use(cors())
 
 // routers
-app.get('/status', (req, res) => {
+app.post('/register', (req, res) => {
   res.send({
-    message: 'Hello'
+    // client request/provide from payload: to access client payload req.body.email
+    message: `your user ${req.body.email} was registed!`
   })
 })
 
