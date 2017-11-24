@@ -12,7 +12,8 @@
           v-model="email"
         ></v-text-field>
         <v-text-field
-          label="password" 
+          label="password"
+          type="password"
           v-model="password"
         ></v-text-field>
         <div v-html="error" class="error"></div>

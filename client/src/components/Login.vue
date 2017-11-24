@@ -7,14 +7,18 @@
       </v-toolbar>
 
       <div class="pl-4 pr-4 pt-2 pb-2">
-        <v-text-field
-          label="email"
-          v-model="email"
-        ></v-text-field>
-        <v-text-field
-          label="password" 
-          v-model="password"
-        ></v-text-field>
+        <form name="tab-tracker-form" autocomplete="off">
+          <v-text-field
+            label="email"
+            v-model="email"
+          ></v-text-field>
+          <v-text-field
+            label="password"
+            type="password" 
+            v-model="password"
+            autocomplete="new-password"
+          ></v-text-field>
+        </form>
         <div v-html="error" class="error"></div>
         <br>         
         <v-btn color="teal lighten-4"  dark @click ="login" >Login</v-btn>      
