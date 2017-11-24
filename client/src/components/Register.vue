@@ -32,8 +32,8 @@ export default {
   name: 'Register',
   data () {
     return {
-      email: 'test@gmail.com',
-      password: '123',
+      email: '',
+      password: '',
       error: null
     }
   },
@@ -44,7 +44,8 @@ export default {
           email: this.email,
           password: this.password
         })
-        console.log(response.data)
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
