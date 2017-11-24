@@ -16,7 +16,7 @@ app.use(cors())
 // routers
 require('./routers')(app)
 
-// set up server
+// set up server : {force: true} to drop all data
 sequelize.sync()
   .then(() => {
     app.listen(config.port, () => {
