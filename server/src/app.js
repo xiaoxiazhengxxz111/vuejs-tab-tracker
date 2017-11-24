@@ -2,6 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const cors = require('cors')
+const {sequelize} = require('./models')
+const config = require('./config/config')
 
 // init app
 const app = express()
@@ -12,12 +14,12 @@ app.use(morgan('combine'))
 app.use(cors())
 
 // routers
-app.post('/register', (req, res) => {
-  res.send({
-    // client request/provide from payload: to access client payload req.body.email
-    message: `your user ${req.body.email} was registed!`
-  })
-})
+require('./routers')(app)
 
 // set up server
-app.listen(process.env.PORT || 8081)
+sequelize.sync()
+  .then(() => {
+    app.listen(config.port, () => {
+      console.log(`Server start on part ${config.port}`)
+    })
+  })
