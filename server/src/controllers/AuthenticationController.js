@@ -1,4 +1,13 @@
 const {User} = require('../models')
+const jwt = require('jsonwebtoken')
+const config = require('../config/config')
+
+function jwtSignUser (user) {
+  const ONE_WEEK = 60 * 60 * 24 * 7
+  return jwt.sign(user, config.authentication.jwtSecret, {
+    expiresIn: ONE_WEEK
+  })
+}
 
 module.exports = {
   async register (req, res) {
@@ -28,7 +37,11 @@ module.exports = {
       }
 
       // if all fine will send back use json to client
-      res.send(user.toJSON())
+      const userJson = user.toJSON()
+      res.send({
+        user: userJson,
+        tocken: jwtSignUser(userJson)
+      })
     } catch (error) {
       res.status(500).send({
         error: 'An error as occured trying to login.'
