@@ -25,6 +25,12 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    // Action handlers receive a context object which exposes the same set of methods/properties
+    // on the store instance, so you can call context.commit to commit a mutation
+    // argument destructuring
+    // setToken2 (token) {
+    //   token.commit('setToken')
+    // },
     setToken ({commit}, token) {
       commit('setToken', token)
     },

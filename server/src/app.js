@@ -17,7 +17,7 @@ app.use(cors())
 require('./routers')(app)
 
 // set up server : {force: true} to drop all data
-sequelize.sync({force: true})
+sequelize.sync()
   .then(() => {
     app.listen(config.port, () => {
       console.log(`Server start on part ${config.port}`)

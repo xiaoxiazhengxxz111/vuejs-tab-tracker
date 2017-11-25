@@ -4,19 +4,18 @@
       <router-link :to="{ path: '/' }">
         <v-btn 
           flat 
-          dark 
-          class="navbtn"
-          v-if="!$store.state.isUserLoggedIn"
+          dark
         >TabTracker</v-btn>
       </router-link>      
     </v-toolbar-title>
      <v-toolbar-items >
-      <v-btn 
-        flat 
-        dark 
-        class="navbtn"
-        v-if="!$store.state.isUserLoggedIn"
-      >Browser</v-btn>
+       <router-link :to="{path: 'songs'}">
+         <v-btn 
+          flat 
+          dark 
+          v-if="!$store.state.isUserLoggedIn"
+        >Browser</v-btn>
+       </router-link>      
     </v-toolbar-items>
     <v-spacer></v-spacer>
     <v-toolbar-items >
@@ -24,17 +23,25 @@
         <v-btn 
           flat 
           dark 
-          class="navbtn"
           v-if="!$store.state.isUserLoggedIn"
         >Login</v-btn>
-    </router-link>      
+      </router-link>      
+    </v-toolbar-items>
+    <v-toolbar-items >
+      <router-link :to="{ path: '/' }">
+        <v-btn 
+          flat 
+          dark 
+          v-if="$store.state.isUserLoggedIn"
+          @click="logout"
+        >Log out</v-btn>
+      </router-link>      
     </v-toolbar-items> 
     <v-toolbar-items >
       <router-link :to="{ path: 'register' }">
         <v-btn 
           flat 
           dark 
-          class="navbtn" 
           v-if="!$store.state.isUserLoggedIn"
         >Sign up</v-btn>
       </router-link>      
@@ -44,13 +51,17 @@
 
 <script>
 export default {
+  methods: {
+    logout () {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+    }
+  }
+
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.navbtn:hover {
-  color:blue
-}
 
 </style>
