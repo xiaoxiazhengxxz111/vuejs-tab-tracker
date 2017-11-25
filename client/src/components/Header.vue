@@ -1,15 +1,17 @@
 <template>
   <v-toolbar fixed class="teal lighten-4" dark>
     <v-toolbar-title class="mr-4">
-      <router-link :to="{ path: '/' }">
-        <v-btn 
-          flat 
-          dark
-        >TabTracker</v-btn>
-      </router-link>      
+      <v-toolbar-items >
+        <router-link :to="{ path: '/' }">
+          <v-btn 
+            flat 
+            dark
+          >TabTracker</v-btn>
+        </router-link>
+      </v-toolbar-items >     
     </v-toolbar-title>
-     <v-toolbar-items >
-       <router-link :to="{path: 'songs'}">
+    <v-toolbar-items >
+       <router-link :to="{ path: 'songs'}">
          <v-btn 
           flat 
           dark 
