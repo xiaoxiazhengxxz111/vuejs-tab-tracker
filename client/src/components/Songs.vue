@@ -2,6 +2,11 @@
   <v-layout column>
     <v-flex xs6 offset-xs3>
       <panel title="Songs">
+        <div v-for="song in songs" :key="song.id">
+          {{song.title}} - 
+          {{song.artist}} -
+          {{song.album}}
+        </div>
       </panel>
     </v-flex>
   </v-layout>
@@ -9,6 +14,7 @@
 
 <script>
 import Panel from '@/components/Panel'
+import SongsService from '@/services/SongsService'
 
 export default {
   name: 'Songs',
@@ -17,9 +23,13 @@ export default {
   },
   data () {
     return {
+      songs: null
     }
   },
   methods: {
+  },
+  async mounted () {
+    this.songs = (await SongsService.getAllSongs()).data
   }
 }
 </script>
