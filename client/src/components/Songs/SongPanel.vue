@@ -1,6 +1,4 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
       <panel title="Songs"> 
         <v-btn
           slot="action"
@@ -34,19 +32,13 @@
           </v-layout>
         </div>
       </panel>
-    </v-flex>
-  </v-layout>
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 
 export default {
   name: 'Songs',
-  components: {
-    Panel
-  },
   data () {
     return {
       songs: null

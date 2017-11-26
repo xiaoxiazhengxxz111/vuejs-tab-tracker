@@ -25,13 +25,9 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
-import Panel from '@/components/Panel'
 
 export default {
   name: 'Register',
-  components: {
-    Panel
-  },
   data () {
     return {
       email: '',

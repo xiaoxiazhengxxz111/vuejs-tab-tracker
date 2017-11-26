@@ -70,7 +70,6 @@
 </template>
 
 <script>
-import Panel from '@/components/Panel'
 import SongsService from '@/services/SongsService'
 
 export default {
@@ -117,9 +116,6 @@ export default {
     // when i mounted, afficher all its song infor: getSongById
     const songId = this.$store.state.route.params.songId
     this.song = (await SongsService.getSongById(songId)).data
-  },
-  components: {
-    Panel
   }
 }
 </script>
