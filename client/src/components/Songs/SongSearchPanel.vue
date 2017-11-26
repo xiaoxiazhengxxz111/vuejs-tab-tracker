@@ -1,14 +1,36 @@
 <template>
-  <panel title="Search">Search panel</panel>
+  <panel title="Search">
+    <v-text-field
+      label="Search by song title, artist, album, or genre"
+      v-model="search"
+    ></v-text-field>
+  </panel>
 </template>
 
 <script>
 export default {
   data () {
     return {
+      search: ''
     }
   },
   methods: {
+  },
+  watch: {
+    search (value) {
+      const route = {name: 'songs'}
+      if (this.search !== '') {
+        // route search query: search is keyword :search value from input
+        route.query = {search: this.search}
+      }
+      this.$router.push(route)
+    },
+    '$route.query.search': {
+      immediate: true,
+      handler (value) {
+        this.search = value
+      }
+    }
   }
 }
 </script>
