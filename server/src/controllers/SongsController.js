@@ -22,6 +22,18 @@ module.exports = {
       })
     }
   },
+  async saveEditSong (req, res) {
+    try {
+      await Song.update(req.body, {
+        where: {id: req.params.songId}
+      })
+      res.send(req.body)
+    } catch (err) {
+      res.status(500).send({
+        error: 'an error has occured trying to update a song'
+      })
+    }
+  },
 
   async getSongById (req, res) {
     try {

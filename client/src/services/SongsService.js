@@ -9,5 +9,8 @@ export default {
   },
   getSongById (songId) {
     return Api().get(`songs/${songId}`)
+  },
+  saveSong (song) {
+    return Api().put(`songs/${song.id}`, song)
   }
 }
