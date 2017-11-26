@@ -23,11 +23,6 @@ export default {
       songs: null
     }
   },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    }
-  },
   async mounted () {
     this.songs = (await SongsService.getAllSongs()).data
   }

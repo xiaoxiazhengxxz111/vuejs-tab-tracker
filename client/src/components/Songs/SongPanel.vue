@@ -2,7 +2,7 @@
       <panel title="Songs"> 
         <v-btn
           slot="action"
-          @click="navigateTo ({name: 'createsong'})"            
+          :to="{name: 'createsong'}" 
           class="teal lighten-4"
           light
           medium
@@ -26,7 +26,7 @@
               <v-btn 
                 color="teal lighten-4"  
                 dark 
-                @click ="navigateTo({name: 'song', params: {songId: song.id}})" 
+                :to="{name: 'song', params: {songId: song.id}}" 
                 >View</v-btn>
             </v-flex>
           </v-layout>
@@ -42,11 +42,6 @@ export default {
   data () {
     return {
       songs: null
-    }
-  },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
     }
   },
   watch: {

@@ -16,7 +16,7 @@
               autocomplete="new-password"
             ></v-text-field>
           </form>
-          <div v-html="error" class="error"></div>
+          <div v-html="error" class="danger-alter"></div>
           <br>         
           <v-btn color="teal lighten-4"  dark @click ="login" >Login</v-btn>      
         </div>
@@ -49,6 +49,8 @@ export default {
         // dispatch/sned actions in components with this.$store.dispatch('xxx')
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+        // if login then redirect
+        this.$router.push({name: 'songs'})
       } catch (error) {
         this.error = error.response.data.error
       }
@@ -59,7 +61,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* .error {
+.danger-alter {
   color: red
-} */
+}
 </style>

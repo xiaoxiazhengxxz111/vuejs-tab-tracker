@@ -2,18 +2,19 @@
   <v-toolbar fixed class="teal lighten-4" dark>
     <v-toolbar-title class="mr-4">
       <v-toolbar-items >
-        <v-btn 
-          flat 
-          dark
-          :to="{ path: '/' }"
-        >TabTracker</v-btn>
+        <router-link
+          class="home"
+          tag="span"
+          :to="{name: 'songs'}">
+          TabTracker
+        </router-link>
       </v-toolbar-items >     
     </v-toolbar-title>
     <v-toolbar-items >
       <v-btn 
         flat 
         dark
-        :to="{ path: 'songs'}" 
+        :to="{name: 'songs'}" 
       >Browser</v-btn>  
     </v-toolbar-items>
     <v-spacer></v-spacer>

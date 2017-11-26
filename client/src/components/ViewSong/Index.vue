@@ -35,11 +35,6 @@ export default {
       song: {}
     }
   },
-  methods: {
-    navigateTo (route) {
-      this.$router.push(route)
-    }
-  },
   async mounted () {
     const songId = this.$store.state.route.params.songId
     this.song = (await SongsService.getSongById(songId)).data
