@@ -27,7 +27,8 @@
               <div class="song-genre">{{song.genre}}</div>
               <v-btn 
                 color="teal lighten-4"  
-                dark @click ="navigateTo({name: 'song', params: {songId: song.id}})" 
+                dark 
+                @click ="navigateTo({name: 'song', params: {songId: song.id}})" 
                 >View</v-btn>
             </v-flex>
           </v-layout>
